@@ -76,8 +76,10 @@ const VerifyByPhone: React.FC<VerifyByPhoneProps> = ({
             }}
             autoWidth
             placeholder="Enter OTP here">
-            {['+41', '+42', '+43'].map((val) => (
-              <MenuItem value={val}>{val}</MenuItem>
+            {['+41', '+42', '+43'].map((val, index) => (
+              <MenuItem key={index} value={val}>
+                {val}
+              </MenuItem>
             ))}
           </AppSelect>
 

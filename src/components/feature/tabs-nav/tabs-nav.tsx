@@ -18,8 +18,8 @@ const TabsNav: React.FC<TabsNavProps> = ({ items }) => {
 
   return (
     <Tabs value={router.pathname}>
-      {items.map((i) => (
-        <Tab value={i.href} {...i} component={Link} />
+      {items.map((i, index) => (
+        <Tab key={index} value={i.href} {...i} component={Link} />
       ))}
     </Tabs>
   );

@@ -150,7 +150,7 @@ const RegisterDialog: React.FC<RegisterDialogProps> = ({
                 control={
                   <Checkbox
                     value={value}
-                    onChange={(e, checked) => onChange(checked)}
+                    onChange={(_, checked) => onChange(checked)}
                     className={classes.checkbox}
                   />
                 }

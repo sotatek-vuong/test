@@ -34,6 +34,7 @@ const NextComposed = React.forwardRef<HTMLAnchorElement, NextComposedProps>(
     );
   },
 );
+NextComposed.displayName = 'NextComposed';
 
 interface LinkPropsBase {
   activeClassName?: string;
@@ -87,6 +88,10 @@ function Link(props: LinkProps) {
   );
 }
 
-export default React.forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => (
-  <Link {...props} innerRef={ref} />
-));
+const LinkComponent = React.forwardRef<HTMLAnchorElement, LinkProps>(
+  (props, ref) => <Link {...props} innerRef={ref} />,
+);
+
+LinkComponent.displayName = 'LinkComponent';
+
+export default LinkComponent;

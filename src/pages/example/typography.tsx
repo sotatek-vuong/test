@@ -4,21 +4,20 @@ import {
   Link as MuiLink,
   makeStyles,
   Switch,
-  Theme,
   Typography,
 } from '@material-ui/core';
 import { Link } from '@components/core';
 import clsx from 'clsx';
 import { getExampleLayout } from '@components/layout';
 
-const useStyles = makeStyles((theme: Theme) => ({
+const useStyles = makeStyles({
   bold: {
     fontWeight: 'bold',
   },
   italic: {
     fontStyle: 'italic',
   },
-}));
+});
 
 const TypographyPage = () => {
   const [bold, setBold] = useState(false);
