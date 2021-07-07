@@ -70,15 +70,18 @@ const RegisterVerifyPage = () => {
       <div className={classes.container}>
         <VerifyByEmail
           onVerify={async ({ otp }) => {
-            setEmailLoading(true);
-            await sleep();
-            if (otp === '123123') {
+            try {
+              setEmailLoading(true);
+              await sleep();
+              if (otp === '123123') {
+                throw new Error();
+              }
+              router.replace('/register/favourite');
+            } catch (err) {
               setEmailError('');
               setEmailError('Mock up');
-            }
-            setEmailLoading(false);
-            if (!emailError) {
-              router.replace('/register/favourite');
+            } finally {
+              setEmailLoading(false);
             }
           }}
           onSend={() => {
@@ -97,15 +100,18 @@ const RegisterVerifyPage = () => {
 
         <VerifyByPhone
           onVerify={async (data) => {
-            setPhoneLoading(true);
-            await sleep();
-            if (data.otp === '123123') {
-              setPhoneError('');
-              setPhoneError('Mock up error');
-            }
-            setPhoneLoading(false);
-            if (!phoneError) {
+            try {
+              setPhoneLoading(true);
+              await sleep();
+              if (data.otp === '123123') {
+                throw new Error();
+              }
               router.replace('/register/favourite');
+            } catch (err) {
+              setPhoneError('');
+              setPhoneError('Mock up');
+            } finally {
+              setPhoneLoading(false);
             }
           }}
           sent={sentPhone}

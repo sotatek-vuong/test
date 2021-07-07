@@ -12,7 +12,6 @@ import {
   Toolbar,
 } from '@material-ui/core';
 import { useRouter } from 'next/router';
-import Image from 'next/image';
 
 import { Link as LinkBehavior } from '@components/core';
 import { useStyles } from './styles';
@@ -31,7 +30,8 @@ const NavBar: React.FC = () => {
         <AppBar position="static" color="transparent" elevation={0} square>
           <Toolbar className={classes.containerNavbar}>
             <div className={classes.inline}>
-              <Image src="/logo.png" className={classes.logo} alt="logo" />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/logo.png" className={classes.logo} alt="logo" />
               <Tabs
                 value={_.chain(router.pathname).split('/').last().value()}
                 textColor="primary">
